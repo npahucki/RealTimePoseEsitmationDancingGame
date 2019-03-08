@@ -1,5 +1,6 @@
 # A fun demonstration of using OpenPose output data fed into another neural network for making predictions on people poses
 
+[![Watch the video](demo.gif)](https://www.youtube.com/watch?v=dON8OgfUPXU)
 
 ## About
 
@@ -19,8 +20,6 @@ In reality, the scoring is determined by how many up/down arm movements the syst
 gets assigned a random name and his face print is recorded. If the same player returns later on his score and avatar head
 are remembered. There is also a leader board showing who has the top score. The game supports multiple themes, such that
 you could plug in different themes by placing files in the `cpp/assets/xxx` folder where xxx is the name of your theme. 
-
-[![Watch the video](https://j.gifs.com/3Q2p9n.gif)](https://www.youtube.com/watch?v=dON8OgfUPXU)
 
 ### The Architecture
 
