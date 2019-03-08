@@ -20,7 +20,7 @@ gets assigned a random name and his face print is recorded. If the same player r
 are remembered. There is also a leader board showing who has the top score. The game supports multiple themes, such that
 you could plug in different themes by placing files in the `cpp/assets/xxx` folder where xxx is the name of your theme. 
 
-[![Watch the video](https://gifs.com/gif/skull-game-ml-project-3Q2p9n)](https://www.youtube.com/watch?v=dON8OgfUPXU)
+[![Watch the video](https://j.gifs.com/3Q2p9n.gif)](https://www.youtube.com/watch?v=dON8OgfUPXU)
 
 ### The Architecture
 
