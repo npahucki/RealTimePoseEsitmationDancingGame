@@ -1,0 +1,26 @@
+#!/bin/bash
+IMG=posegame:latest
+
+# The directory in which to store the database files. 
+DB_DIR=`pwd`
+
+# The name of the theme to use (halloween, space, bean)
+THEME=halloween
+
+# The size of the area that is analized by the body model. A multiple of 16. The bigger this is the slower the detection, but the better the accurracy. 
+NET_RES="-1x160"
+
+# Uses the GPU to render the skeletons - in my experience this slows down the  FPS. However, the only way to get the fading effects on the last skeleton positions is to turn this on. 
+USE_GPU_RENDER=false
+
+# The number of frames to remember the skeleton positions and to render with a visual echo effect. 
+RENDER_LAST_FRAMES=3
+
+# Discard all but the top N people from processing. 
+MAX_PEOPLE=5
+
+# If uncommented, will use the file specified as the input source. NOTE: --ip_camera is NOT a typo, it can be used for ip_camera or input video.  
+#USE_TEST_VIDEO=--ip_camera=./test.mp4
+
+xhost + > /dev/null
+docker run --name gestures --net=host -e DISPLAY -v $DB_DIR:/db --device /dev/video0:/dev/video0 --runtime=nvidia --entrypoint ./cpp/build/edmodo_head --rm $IMG --net_resolution $NET_RES --face_id_frame_interval=300 --mirror=true --db_folder=/db/ --gpu_render=$USE_GPU_RENDER --render_last_frames=$RENDER_LAST_FRAMES --theme_name=$THEME --max_people=$MAX_PEOPLE --camera=0 $USE_TEST_VIDEO $1

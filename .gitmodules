@@ -1,0 +1,6 @@
+[submodule "cpp/thirdparty/json"]
+	path = cpp/thirdparty/json
+	url = https://github.com/nlohmann/json.git
+[submodule "cpp/thirdparty/dlib"]
+	path = cpp/thirdparty/dlib
+	url = https://github.com/davisking/dlib.git

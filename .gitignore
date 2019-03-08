@@ -1,0 +1,12 @@
+images
+cmake-build-*
+*.bdb
+*.dat
+
+# IDEA Garbage
+.idea
+
+
+# MAC garbage
+.DS_Store 
+

@@ -1,0 +1,11 @@
+#!/bin/bash
+PI_NAME=n8pi.local
+PI_IP=`getent hosts $PI_NAME | awk '{print $1 }'`
+PI_CAMERA_ADDR=http://$PI_IP:8080/?action=stream
+NET_RES="160x160"
+HAND_RES="240x240"
+FACE_RES="240x240"
+
+echo Using camera at $PI_CAMERA_ADDR
+
+docker run --name gestures --net=host -e DISPLAY --runtime=nvidia --entrypoint ./cpp/build/detect_hands_up --rm 721466574657.dkr.ecr.us-east-1.amazonaws.com/gestures:latest --ip_camera $PI_CAMERA_ADDR $1

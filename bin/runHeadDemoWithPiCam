@@ -1,0 +1,12 @@
+#!/bin/bash
+PI_NAME=n8pi.local
+PI_IP=`getent hosts $PI_NAME | awk '{print $1 }'`
+PI_CAMERA_ADDR=http://$PI_IP:8080/?action=stream
+NET_RES="-1x192"
+DB_DIR=`pwd`
+MAX_PERSONS=2
+
+echo Using camera at $PI_CAMERA_ADDR
+
+docker run --name gestures --net=host -e DISPLAY -v $DB_DIR:/db --runtime=nvidia --entrypoint ./cpp/build/edmodo_head --rm 721466574657.dkr.ecr.us-east-1.amazonaws.com/gestures:latest --net_resolution $NET_RES --mirror=false --db_folder=/db/ --theme_name=halloween --max_people=$MAX_PERSONS --ip_camera $PI_CAMERA_ADDR $1
+

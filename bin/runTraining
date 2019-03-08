@@ -1,0 +1,5 @@
+#!/bin/bash
+CWD=`pwd`
+
+docker run --name gestures -v $CWD:/output -e CUDA_VISIBLE_DEVICES="" --runtime=nvidia --net=host --entrypoint /usr/bin/python --rm 721466574657.dkr.ecr.us-east-1.amazonaws.com/gestures:latest ./python/train_model.py /output
+
